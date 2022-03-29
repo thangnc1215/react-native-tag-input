@@ -211,15 +211,15 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
     this.props.onChangeText(event.nativeEvent.text);
   }
 
-  onKeyPress = (event: { nativeEvent: { key: string } }) => {
-    if (this.props.text !== '' || event.nativeEvent.key !== 'Backspace') {
-      return;
-    }
-    const tags = [...this.props.value];
-    tags.pop();
-    this.props.onChange(tags);
-    this.scrollToEnd();
-  }
+  // onKeyPress = (event: { nativeEvent: { key: string } }) => {
+  //   if (this.props.text !== '' || event.nativeEvent.key !== 'Backspace') {
+  //     return;
+  //   }
+  //   const tags = [...this.props.value];
+  //   tags.pop();
+  //   this.props.onChange(tags);
+  //   this.scrollToEnd();
+  // }
 
   focus = () => {
     invariant(this.tagInput, "should be set");
@@ -271,7 +271,7 @@ class TagInput<T> extends React.PureComponent<Props<T>, State> {
           <TextInput
             ref={this.tagInputRef}
             blurOnSubmit={false}
-            onKeyPress={this.onKeyPress}
+            // onKeyPress={this.onKeyPress}
             value={this.props.text}
             style={[styles.textInput, {
               flex: 1,
